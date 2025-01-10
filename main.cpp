@@ -23,7 +23,7 @@ std::vector<double> stabilization_points(double r, int interactions){
     double state = 0.5;
     for(int i = 0; i < interactions; i++){
         state = r*state*(1-state);
-    }git commit ""
+    }
     while(true){ // do it more efficiently 
         double new_state = r*state*(1-state);
         bool found = false;
