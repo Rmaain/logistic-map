@@ -8,7 +8,6 @@
 const double TOLERANCE = 1e-6;
 // better name the variables
 
-
 void setPosition(int x, int y){
     COORD coord = {(SHORT)x, (SHORT)y};
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord); //!!!!!!!!!
