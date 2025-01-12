@@ -58,7 +58,6 @@ int main(){
         }
     }
 
-
     std::cin.get();
     system("cls");
     return 0;
