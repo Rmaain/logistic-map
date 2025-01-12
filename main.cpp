@@ -2,10 +2,12 @@
 #include <windows.h>
 #include <utility>
 #include <vector> // change to set
-#include <algorithm>
 #include <cmath>
+#include <cstdlib>
+
 const double TOLERANCE = 1e-6;
 // better name the variables
+
 
 void setPosition(int x, int y){
     COORD coord = {(SHORT)x, (SHORT)y};
@@ -36,7 +38,7 @@ std::vector<double> stabilization_points(double r, int interactions){
         if(found == true){
             break;
         }
-        if (values.size() >= 16){
+        if (values.size() >= 32){
             break;
         }
         values.push_back(new_state);
@@ -46,20 +48,19 @@ std::vector<double> stabilization_points(double r, int interactions){
 }
 
 int main(){
-    
+    system("cls");
     std::pair<int, int> consolesize = ConsoleSize();
-    setPosition((consolesize.first-12)/2, consolesize.second/2);
-    std::cout << "Hello " << consolesize.first << " " << consolesize.second;
+    // std::cout << consolesize.first << " " << consolesize.second;
     for (double i = 0; i <= 3.8; i = i + 0.01){
-        std::vector<double> x = stabilization_points(i, 100);
+        std::vector<double> x = stabilization_points(i, 200);
         for (double value : x){
-            setPosition(i*37.0, (1-value)*38.0);
-            std::cout << ".";
+            setPosition(i*consolesize.first/4, (1-value)*consolesize.second);
+            std::cout << "x";
         }
     }
 
 
-    int x;
-    std::cin >> x;
+    std::cin.get();
+    system("cls");
     return 0;
 }
